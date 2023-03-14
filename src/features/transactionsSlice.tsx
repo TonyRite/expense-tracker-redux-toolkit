@@ -11,7 +11,10 @@ const transactionsSlice = createSlice({
     name:'transactions',
     initialState,
     reducers:{
-        deleteTransaction: (state, action) => {
+        deleteTransaction: (state,action: {
+            payload: number;
+            type: string;
+        }) => {
            return state.filter(transaction => transaction.id !== action.payload)
             // state.transactions = state.transactions.filter(transaction => transaction.id !== action.payload)
         },
